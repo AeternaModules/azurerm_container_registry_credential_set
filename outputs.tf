@@ -1,3 +1,7 @@
+output "container_registry_credential_sets_id" {
+  description = "Map of id values across all container_registry_credential_sets, keyed the same as var.container_registry_credential_sets"
+  value       = { for k, v in azurerm_container_registry_credential_set.container_registry_credential_sets : k => v.id }
+}
 output "container_registry_credential_sets_authentication_credentials" {
   description = "Map of authentication_credentials values across all container_registry_credential_sets, keyed the same as var.container_registry_credential_sets"
   value       = { for k, v in azurerm_container_registry_credential_set.container_registry_credential_sets : k => v.authentication_credentials }
